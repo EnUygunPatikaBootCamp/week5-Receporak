@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+{% block title %}Anasayfa{% endblock %}
+{% block body %}
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p> <h1>Süper Lig Puan Durumu  </h1></p>
+            </div>
+            <div class="col-md-12">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Takım</th>
+                            <th>Oynadığı Maç</th>
+                            <th>Kazandığı Maç</th>
+                            <th>Beraberlik</th>
+                            <th>Yenilgi</th>
+                            <th>Puan</th>
+                        </tr>
+                    <tbody>
+                        {% for team in teamPoints %}
+                            <tr>
+                                <td>{{ team.team }}</td>
+                                <td>{{ team.games }}</td>
+                                <td>{{ team.wins }}</td>
+                                <td>{{ team.draws }}</td>
+                                <td>{{ team.losses }}</td>
+                                <td>{{ team.points_per_game }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
